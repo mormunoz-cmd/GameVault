@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>GameVault - Catálogo</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/perfil">
+        Perfil
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="ion-margin-bottom">
+    <h2>Catálogo de Videojuegos</h2>
+    <p>Explora los títulos disponibles en la bóveda:</p>
+  </div>
+
+  <ion-card *ngFor="let juego of juegos" (click)="verDetalle(juego)">
+    <ion-card-header>
+      <ion-card-title>{{ juego.titulo }}</ion-card-title>
+      <ion-card-subtitle>{{ juego.plataforma }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>{{ juego.descripcion }}</p>
+      <ion-button expand="block" fill="outline" color="primary" class="ion-margin-top">
+        Ver Detalles
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  
+  <div class="ion-margin-top">
+    <ion-button expand="block" color="secondary" routerLink="/perfil">
+      Ver Mi Perfil Gamer
+    </ion-button>
+  </div>
+</ion-content>
